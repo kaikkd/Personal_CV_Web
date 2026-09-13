@@ -10,7 +10,7 @@ last_updated: 2026-09-13
 
 San Diego, CA · [xiaow1704@gmail.com](mailto:xiaow1704@gmail.com) · [GitHub](https://github.com/kaikkd)
 
-**Software Engineer specializing in Agent Runtime and Evals Infrastructure.** At ByteDance Seed, delivered eight LLM/VLM/Agent evaluation and product projects spanning LLM-as-a-Judge, function calling, CodeAct, multimodal evaluation, trajectory attribution, concurrent execution, and full-stack AI systems in Python and TypeScript.
+**Software Engineer specializing in Agent Runtime and Evals Infrastructure.** At TikTok, delivered eight LLM/VLM/Agent evaluation and product projects spanning LLM-as-a-Judge, function calling, CodeAct, multimodal evaluation, trajectory attribution, concurrent execution, and full-stack AI systems in Python and TypeScript.
 
 ## Education
 
@@ -23,7 +23,7 @@ Beijing, China · Sep 2022 – Jul 2026
 
 ## Experience
 
-**ByteDance, Seed** — LLM Evaluation Intern, Agent Engineering  
+**TikTok** — AI Engineer Intern  
 Beijing, China · Aug 2025 – Jul 2026
 
 - Delivered eight LLM/VLM/Agent evaluation and product projects in Python and TypeScript, contributing **+10,226/−4,387 lines**, 18 merged MRs, and 19 code reviews; shipped four evaluation suites across two internal platform releases.
@@ -34,7 +34,7 @@ Beijing, China · Aug 2025 – Jul 2026
 - Evaluated 23,300 streaming-video cases across 1,353 videos and 49,979 QA pairs using six semantic, contextual, logical, temporal, and completeness metrics, maintaining an error rate below 5%.
 - Independently built a React/TypeScript/shadcn UI and Express.js service across three repositories and 76 commits, covering streamed task progress, MCP tool-call visualization, multi-turn sessions, file/multimodal uploads, and 10+ modules; authored onboarding documentation used by 10+ engineers.
 
-**LargeV Instrument Corp.** — AI Algorithm Engineer Intern  
+**LargeV Instrument Corp.** — Machine Learning Engineer Intern  
 Beijing, China · Oct 2024 – Dec 2024
 
 - Cleaned and standardized 5,000 private intraoral scan images with automated consistency checks, removing 10%+ label-conflict samples.
@@ -79,7 +79,7 @@ Python, FastAPI, React, TypeScript, SQLModel, Zustand, SSE, Docker · Jun 2026 �
 
 San Diego, CA · [xiaow1704@gmail.com](mailto:xiaow1704@gmail.com) · [GitHub](https://github.com/kaikkd)
 
-**专注 Agent Runtime 与评测基础设施的软件工程师。** 在字节跳动 Seed 交付 8 个 LLM/VLM/Agent 评测与产品项目，覆盖 LLM-as-a-Judge、函数调用、CodeAct、多模态评测、轨迹归因、并发执行及 Python/TypeScript 全栈 AI 系统。
+**专注 Agent Runtime 与评测基础设施的软件工程师。** 在 TikTok 交付 8 个 LLM/VLM/Agent 评测与产品项目，覆盖 LLM-as-a-Judge、函数调用、CodeAct、多模态评测、轨迹归因、并发执行及 Python/TypeScript 全栈 AI 系统。
 
 ## 教育经历
 
@@ -92,7 +92,7 @@ San Diego, CA · [xiaow1704@gmail.com](mailto:xiaow1704@gmail.com) · [GitHub](h
 
 ## 实习经历
 
-**字节跳动 Seed** — 大模型评测实习生（Agent 工程）  
+**TikTok** — AI 工程实习生  
 中国北京 · 2025.08 – 2026.07
 
 - 基于 Python/TypeScript 交付 8 个 LLM/VLM/Agent 评测与产品项目，累计贡献 **+10,226/−4,387 行代码**、合并 18 个 MR、评审 19 个 MR，推动 4 个评测集随内部平台两个版本发布。
@@ -103,7 +103,7 @@ San Diego, CA · [xiaow1704@gmail.com](mailto:xiaow1704@gmail.com) · [GitHub](h
 - 使用 6 类语义、上下文、逻辑、时序和完整性指标，对 1,353 个流式视频、49,979 个 QA 对完成 23,300 Case 对比评测，Error Rate 控制在 5% 以下。
 - 独立完成跨 3 个仓库、76 次提交的 React/TypeScript/shadcn UI 与 Express.js 服务，交付任务进度流式输出、MCP 工具调用可视化、多轮会话、文件/多模态上传等 10+ 模块；沉淀的新人文档被 10+ 工程师使用。
 
-**LargeV Instrument Corp.** — AI 算法工程实习生  
+**LargeV Instrument Corp.** — 机器学习工程实习生  
 中国北京 · 2024.10 – 2024.12
 
 - 面向 5,000 张私有口腔扫描图像编写一致性校验与格式标准化流程，清理 10%+ 标注冲突样本。

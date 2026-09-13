@@ -6,7 +6,7 @@ const projects: Record<Locale, Project[]> = {
       slug: "agent-evals-infrastructure",
       index: "01",
       title: "Agent Evals Infrastructure",
-      eyebrow: "BYTEDANCE SEED · AGENT EVALUATION",
+      eyebrow: "TIKTOK · AGENT EVALUATION",
       summary:
         "Evaluation infrastructure spanning LLM-as-a-Judge, function calling, CodeAct, multimodal evaluation, and trajectory RCA.",
       challenge:
@@ -31,7 +31,6 @@ const projects: Record<Locale, Project[]> = {
       links: [],
       accent: "cyan",
       media: {
-        kind: "image",
         src: "/projects/generated/agent-evals.jpg",
         alt: "Conceptual illustration of an agent evaluation and RCA pipeline",
         caption: "Conceptual system illustration",
@@ -64,7 +63,6 @@ const projects: Record<Locale, Project[]> = {
       ],
       accent: "violet",
       media: {
-        kind: "image",
         src: "/projects/generated/code-agent.jpg",
         alt: "Conceptual illustration of the Code Agent Bot runtime and sandbox",
         caption: "Conceptual system illustration",
@@ -97,7 +95,6 @@ const projects: Record<Locale, Project[]> = {
       ],
       accent: "amber",
       media: {
-        kind: "image",
         src: "/projects/generated/itravel.jpg",
         alt: "Conceptual illustration of the itravel planning workflow",
         caption: "Conceptual system illustration",
@@ -109,7 +106,7 @@ const projects: Record<Locale, Project[]> = {
       slug: "agent-evals-infrastructure",
       index: "01",
       title: "Agent 评测基础设施",
-      eyebrow: "字节跳动 SEED · AGENT 评测",
+      eyebrow: "TIKTOK · AGENT 评测",
       summary: "覆盖 LLM-as-a-Judge、函数调用、CodeAct、多模态评测与轨迹 RCA 的评测基础设施。",
       challenge:
         "大规模 Agent 评测同时涉及模型行为、工具执行、真实环境、限流、长上下文与多类 Grader；失败必须可复现、可归因，而不能只停留在聚合分数。",
@@ -126,7 +123,6 @@ const projects: Record<Locale, Project[]> = {
       links: [],
       accent: "cyan",
       media: {
-        kind: "image",
         src: "/projects/generated/agent-evals.jpg",
         alt: "Agent 评测与 RCA 流程概念图",
         caption: "概念系统图",
@@ -158,7 +154,6 @@ const projects: Record<Locale, Project[]> = {
       ],
       accent: "violet",
       media: {
-        kind: "image",
         src: "/projects/generated/code-agent.jpg",
         alt: "Code Agent Bot Runtime 与沙箱概念图",
         caption: "概念系统图",
@@ -190,7 +185,6 @@ const projects: Record<Locale, Project[]> = {
       ],
       accent: "amber",
       media: {
-        kind: "image",
         src: "/projects/generated/itravel.jpg",
         alt: "itravel 规划工作流概念图",
         caption: "概念系统图",
@@ -217,11 +211,11 @@ export const content: Record<Locale, PortfolioContent> = {
       description:
         "Software engineer building agent runtimes, evaluation infrastructure, and full-stack AI systems.",
     },
-    notice: "",
     nav: {
       work: "Work",
-      about: "About",
       experience: "Experience",
+      education: "Education",
+      skills: "Skills",
       research: "Research",
       contact: "Contact",
       menu: "Menu",
@@ -231,9 +225,8 @@ export const content: Record<Locale, PortfolioContent> = {
       kicker: "PROFILE / 2026",
       title: "Agent runtimes, evaluation infrastructure, and full-stack AI systems.",
       description:
-        "At ByteDance Seed, delivered eight LLM, VLM, and Agent evaluation and product projects in Python and TypeScript.",
+        "At TikTok, delivered eight LLM, VLM, and Agent evaluation and product projects in Python and TypeScript.",
       viewWork: "Explore selected work",
-      contact: "Start a conversation",
     },
     signal: {
       label: "Selected engineering metrics",
@@ -252,41 +245,16 @@ export const content: Record<Locale, PortfolioContent> = {
       viewCase: "Read case study",
     },
     projects: projects.en,
-    about: {
-      eyebrow: "ENGINEERING APPROACH / 04",
-      title: "Across model behavior, infrastructure, and the product surface.",
-      paragraphs: [
-        "I am a software engineer focused on the difficult middle layer of AI products: runtimes that coordinate tools, evaluation systems that explain failures, and interfaces that keep users informed.",
-        "My background spans Agent engineering at ByteDance Seed, production-oriented full-stack systems, computer vision, and machine-learning research. I care about deterministic boundaries around probabilistic models.",
-      ],
-      principles: [
-        {
-          index: "01",
-          title: "Runtime reliability",
-          text: "Typed tools, sandboxed execution, retries, concurrency, streaming, and graceful degradation.",
-        },
-        {
-          index: "02",
-          title: "Evaluation & diagnosis",
-          text: "Benchmarks, trajectory attribution, failure taxonomies, RCA, and release evidence.",
-        },
-        {
-          index: "03",
-          title: "Full-stack ownership",
-          text: "Python and FastAPI backends paired with React and TypeScript product interfaces.",
-        },
-      ],
-    },
     experience: {
       eyebrow: "EXPERIENCE",
       title: "Building AI systems in research and production contexts.",
       roles: [
         {
           period: "AUG 2025 — JUL 2026",
-          role: "LLM Evaluation Intern, Agent Engineering",
-          company: "ByteDance, Seed",
+          role: "AI Engineer Intern",
+          company: "TikTok",
           location: "Beijing, China",
-          organizationId: "bytedance",
+          organizationId: "tiktok",
           highlights: [
             "Delivered eight LLM/VLM/Agent evaluation and product projects, contributing +10,226/−4,387 lines, 18 merged MRs, and 19 code reviews; shipped four evaluation suites across two releases.",
             "Owned a 2,505-case multi-turn LLM-as-a-Judge pipeline and integrated 5,106 BFCL v4 cases; deterministic grading and tuned parallelism reduced BFCL runtime from 72 to 34 hours.",
@@ -297,7 +265,7 @@ export const content: Record<Locale, PortfolioContent> = {
         },
         {
           period: "OCT — DEC 2024",
-          role: "AI Algorithm Engineer Intern",
+          role: "Machine Learning Engineer Intern",
           company: "LargeV Instrument Corp.",
           location: "Beijing, China",
           organizationId: "largev",
@@ -422,11 +390,11 @@ export const content: Record<Locale, PortfolioContent> = {
       title: "王骏 — Agent Runtime 与评测工程师",
       description: "专注 Agent Runtime、评测基础设施和全栈 AI 系统的软件工程师。",
     },
-    notice: "",
     nav: {
       work: "作品",
-      about: "关于",
       experience: "经历",
+      education: "教育",
+      skills: "技能",
       research: "研究",
       contact: "联系",
       menu: "菜单",
@@ -436,9 +404,8 @@ export const content: Record<Locale, PortfolioContent> = {
       kicker: "个人档案 / 2026",
       title: "Agent Runtime、评测基础设施与全栈 AI 系统。",
       description:
-        "在字节跳动 Seed 使用 Python 与 TypeScript 交付 8 个 LLM、VLM 与 Agent 评测及产品项目。",
+        "在 TikTok 使用 Python 与 TypeScript 交付 8 个 LLM、VLM 与 Agent 评测及产品项目。",
       viewWork: "查看精选项目",
-      contact: "和我聊聊",
     },
     signal: {
       label: "精选工程指标",
@@ -452,41 +419,16 @@ export const content: Record<Locale, PortfolioContent> = {
       viewCase: "查看完整案例",
     },
     projects: projects.zh,
-    about: {
-      eyebrow: "工程方法 / 04",
-      title: "连接模型行为、工程基础设施与产品界面。",
-      paragraphs: [
-        "我是一名专注 AI 产品中间层的软件工程师：用 Runtime 协调工具，用评测系统解释失败，也用交互界面让用户理解系统状态。",
-        "我的经历覆盖字节跳动 Seed Agent 工程、面向生产的全栈系统、计算机视觉与机器学习研究。我关注如何在概率模型周围建立确定性的工程边界。",
-      ],
-      principles: [
-        {
-          index: "01",
-          title: "Runtime 可靠性",
-          text: "类型化工具、沙箱执行、自动重试、并发、流式输出与确定性降级。",
-        },
-        {
-          index: "02",
-          title: "评测与诊断",
-          text: "Benchmark、轨迹归因、失败分类、RCA 与可验证的发布依据。",
-        },
-        {
-          index: "03",
-          title: "全栈交付",
-          text: "以 Python、FastAPI 构建后端，以 React、TypeScript 实现产品体验。",
-        },
-      ],
-    },
     experience: {
       eyebrow: "实习经历",
       title: "在研究与生产环境中构建 AI 系统。",
       roles: [
         {
           period: "2025.08 — 2026.07",
-          role: "大模型评测实习生（Agent 工程）",
-          company: "字节跳动 Seed",
+          role: "AI 工程实习生",
+          company: "TikTok",
           location: "中国北京",
-          organizationId: "bytedance",
+          organizationId: "tiktok",
           highlights: [
             "交付 8 个 LLM/VLM/Agent 评测与产品项目，贡献 +10,226/−4,387 行代码、合并 18 个 MR、评审 19 个 MR，推动 4 个评测集随平台两个版本发布。",
             "负责 2,505 题多轮 LLM-as-a-Judge 流水线并接入 5,106 个 BFCL v4 用例，通过确定性判分与并发调优将 BFCL 耗时由 72 降至 34 小时。",
@@ -497,7 +439,7 @@ export const content: Record<Locale, PortfolioContent> = {
         },
         {
           period: "2024.10 — 2024.12",
-          role: "AI 算法工程实习生",
+          role: "机器学习工程实习生",
           company: "LargeV Instrument Corp.",
           location: "中国北京",
           organizationId: "largev",

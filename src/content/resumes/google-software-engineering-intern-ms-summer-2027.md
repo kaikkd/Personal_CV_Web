@@ -32,7 +32,7 @@ Beijing, China · Sep 2022 – Jul 2026
 
 ## Experience
 
-**ByteDance, Seed** — LLM Evaluation Intern, Agent Engineering  
+**TikTok** — AI Engineer Intern  
 Beijing, China · Aug 2025 – Jul 2026
 
 - Delivered eight AI/ML evaluation and product projects in Python and TypeScript, contributing **+10,226/−4,387 lines**, 18 merged MRs, and 19 code reviews; shipped four evaluation suites across two internal platform releases.
@@ -40,7 +40,7 @@ Beijing, China · Aug 2025 – Jul 2026
 - Designed long-context and multimodal evaluation pipelines spanning 2,505 multi-turn LLM-as-a-Judge cases and 23,300 streaming-video comparisons; used concurrent processing, SQLite caching, failure taxonomies, and structured result analysis across 16 models.
 - Developed a React/TypeScript/shadcn web application and Express.js service across three repositories and 76 commits, delivering streamed task progress, multi-turn sessions, tool-call visualization, file/multimodal uploads, and 10+ modules.
 
-**LargeV Instrument Corp.** — AI Algorithm Engineer Intern  
+**LargeV Instrument Corp.** — Machine Learning Engineer Intern  
 Beijing, China · Oct 2024 – Dec 2024
 
 - Developed Python data-validation scripts for 5,000 private intraoral images, standardizing formats and removing 10%+ label-conflict samples.

@@ -22,10 +22,18 @@ export function SectionMarker({
       <p className="eyebrow">{label}</p>
       <motion.i
         aria-hidden="true"
-        initial={reduceMotion ? false : { scaleX: 0 }}
-        whileInView={reduceMotion ? undefined : { scaleX: 1 }}
+        initial={
+          reduceMotion
+            ? false
+            : { opacity: 0, transform: "scaleX(0.92)" }
+        }
+        whileInView={
+          reduceMotion
+            ? undefined
+            : { opacity: 1, transform: "scaleX(1)" }
+        }
         viewport={{ once: true, margin: "-10% 0px" }}
-        transition={{ duration: 0.55, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.28, delay: 0.04, ease: [0.23, 1, 0.32, 1] }}
       />
     </motion.div>
   );

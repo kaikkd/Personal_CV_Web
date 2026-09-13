@@ -13,10 +13,7 @@ export type Project = {
   metrics: { value: string; label: string }[];
   links: { label: string; href: string }[];
   accent: "violet" | "cyan" | "amber";
-  media:
-    | { kind: "image"; src: string; alt: string; caption: string }
-    | { kind: "architecture"; alt: string }
-    | { kind: "evidence"; alt: string };
+  media: { src: string; alt: string; caption: string };
 };
 
 export type PortfolioContent = {
@@ -35,11 +32,11 @@ export type PortfolioContent = {
     title: string;
     description: string;
   };
-  notice: string;
   nav: {
     work: string;
-    about: string;
     experience: string;
+    education: string;
+    skills: string;
     research: string;
     contact: string;
     menu: string;
@@ -50,7 +47,6 @@ export type PortfolioContent = {
     title: string;
     description: string;
     viewWork: string;
-    contact: string;
   };
   signal: {
     label: string;
@@ -63,12 +59,6 @@ export type PortfolioContent = {
     viewCase: string;
   };
   projects: Project[];
-  about: {
-    eyebrow: string;
-    title: string;
-    paragraphs: string[];
-    principles: { index: string; title: string; text: string }[];
-  };
   experience: {
     eyebrow: string;
     title: string;
@@ -77,7 +67,7 @@ export type PortfolioContent = {
       role: string;
       company: string;
       location: string;
-      organizationId: "bytedance" | "largev";
+      organizationId: "tiktok" | "largev";
       highlights: string[];
     }[];
     educationLabel: string;

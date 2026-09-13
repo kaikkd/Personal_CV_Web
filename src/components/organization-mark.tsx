@@ -1,16 +1,11 @@
 import Image from "next/image";
 
-export type OrganizationId = "bytedance" | "largev" | "ucsd" | "bjfu";
+export type OrganizationId = "tiktok" | "largev" | "ucsd" | "bjfu";
 
 const marks: Record<
-  Exclude<OrganizationId, "largev">,
+  Exclude<OrganizationId, "largev" | "tiktok">,
   { src: string; alt: string; className: string }
 > = {
-  bytedance: {
-    src: "/brands/bytedance.svg",
-    alt: "ByteDance",
-    className: "organization-mark--bytedance",
-  },
   ucsd: {
     src: "/brands/ucsd.svg",
     alt: "UC San Diego",
@@ -24,6 +19,14 @@ const marks: Record<
 };
 
 export function OrganizationMark({ id }: { id: OrganizationId }) {
+  if (id === "tiktok") {
+    return (
+      <div className="organization-mark organization-mark--tiktok" aria-label="TikTok">
+        <strong>TikTok</strong>
+      </div>
+    );
+  }
+
   if (id === "largev") {
     return (
       <div className="organization-mark organization-mark--largev" aria-label="LargeV">

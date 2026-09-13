@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { Navigation } from "@/components/navigation";
 import { ProjectMedia } from "@/components/project-media";
 import { Reveal } from "@/components/reveal";
+import { SectionMarker } from "@/components/section-marker";
+import { SiteFooter } from "@/components/site-footer";
 import { content, isLocale, locales } from "@/content/portfolio";
 import { siteUrl } from "@/lib/site";
 
@@ -56,6 +58,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const project = copy.projects[projectIndex];
   const nextProject = copy.projects[(projectIndex + 1) % copy.projects.length];
   const otherLocale = locale === "en" ? "zh" : "en";
+  const newTabLabel = locale === "zh" ? "（在新标签页打开）" : " (opens in a new tab)";
 
   return (
     <>
@@ -74,9 +77,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               <p className="eyebrow">
                 {project.eyebrow} / {project.index}
               </p>
-              <Reveal>
-                <h1>{project.title}</h1>
-              </Reveal>
+              <h1 className="case-title-heading">{project.title}</h1>
             </div>
             <p className="case-summary">{project.summary}</p>
           </div>
@@ -84,8 +85,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </header>
 
         <section className="case-metrics section-shell" aria-label="Project outcomes">
-          {project.metrics.map((metric) => (
-            <div key={metric.label}>
+          {project.metrics.map((metric, index) => (
+            <div
+              className="case-metric"
+              key={metric.label}
+              style={{ animationDelay: `${index * 30}ms` }}
+            >
               <strong>{metric.value}</strong>
               <span>{metric.label}</span>
             </div>
@@ -93,31 +98,23 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </section>
 
         <div className="case-body section-shell">
-          <section>
-            <p className="eyebrow">01</p>
-            <div>
-              <h2>{copy.projectPage.challenge}</h2>
-              <p>{project.challenge}</p>
-            </div>
-          </section>
-          <section>
-            <p className="eyebrow">02</p>
-            <div>
-              <h2>{copy.projectPage.solution}</h2>
-              <p>{project.solution}</p>
-            </div>
-          </section>
-          <section>
-            <p className="eyebrow">03</p>
-            <div>
-              <h2>{copy.projectPage.result}</h2>
-              <p>{project.result}</p>
-            </div>
-          </section>
+          {[
+            [copy.projectPage.challenge, project.challenge],
+            [copy.projectPage.solution, project.solution],
+            [copy.projectPage.result, project.result],
+          ].map(([title, body], index) => (
+            <Reveal className="case-section" delay={index * 0.04} key={title}>
+              <SectionMarker index={`0${index + 1}`} label={title} />
+              <div>
+                <h2 className="sr-only">{title}</h2>
+                <p>{body}</p>
+              </div>
+            </Reveal>
+          ))}
         </div>
 
         <section className="case-stack section-shell">
-          <p className="eyebrow">{copy.projectPage.stack}</p>
+          <SectionMarker index="04" label={copy.projectPage.stack} />
           <div className="case-stack-content">
             <ul>
               {project.stack.map((item) => (
@@ -127,7 +124,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             {project.links.length > 0 && (
               <div className="project-links">
                 {project.links.map((link) => (
-                  <a key={link.href} href={link.href} rel="noreferrer" target="_blank">
+                  <a
+                    aria-label={`${link.label}${newTabLabel}`}
+                    key={link.href}
+                    href={link.href}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
                     {link.label}
                     <span aria-hidden="true">↗</span>
                   </a>
@@ -138,13 +141,14 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </section>
 
         <section className="next-case section-shell">
-          <p className="eyebrow">{copy.projectPage.next}</p>
+          <SectionMarker index="05" label={copy.projectPage.next} light />
           <Link href={`/${locale}/projects/${nextProject.slug}`}>
             <span>{nextProject.title}</span>
             <span aria-hidden="true">↗</span>
           </Link>
         </section>
       </main>
+      <SiteFooter copy={copy} />
     </>
   );
 }

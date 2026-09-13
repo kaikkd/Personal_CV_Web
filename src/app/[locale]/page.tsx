@@ -8,6 +8,7 @@ import { OrganizationMark } from "@/components/organization-mark";
 import { ProjectMedia } from "@/components/project-media";
 import { Reveal } from "@/components/reveal";
 import { SectionMarker } from "@/components/section-marker";
+import { SiteFooter } from "@/components/site-footer";
 import { SocialIcon } from "@/components/social-icon";
 import { content, isLocale } from "@/content/portfolio";
 import { siteUrl } from "@/lib/site";
@@ -51,6 +52,7 @@ export default async function PortfolioPage({ params }: PageProps) {
 
   const copy = content[locale];
   const otherLocale = locale === "en" ? "zh" : "en";
+  const newTabLabel = locale === "zh" ? "（在新标签页打开）" : " (opens in a new tab)";
 
   return (
     <>
@@ -95,7 +97,12 @@ export default async function PortfolioPage({ params }: PageProps) {
                   </span>
                   <i aria-hidden="true">↗</i>
                 </a>
-                <a href={copy.identity.github} rel="noreferrer" target="_blank">
+                <a
+                  aria-label={`GitHub @kaikkd${newTabLabel}`}
+                  href={copy.identity.github}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
                   <span className="profile-contact-icon">
                     <SocialIcon name="github" />
                   </span>
@@ -105,7 +112,12 @@ export default async function PortfolioPage({ params }: PageProps) {
                   </span>
                   <i aria-hidden="true">↗</i>
                 </a>
-                <a href={copy.identity.linkedin} rel="noreferrer" target="_blank">
+                <a
+                  aria-label={`LinkedIn Jun Wang${newTabLabel}`}
+                  href={copy.identity.linkedin}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
                   <span className="profile-contact-icon">
                     <SocialIcon name="linkedin" />
                   </span>
@@ -144,13 +156,6 @@ export default async function PortfolioPage({ params }: PageProps) {
           </div>
         </section>
 
-        {copy.notice && (
-          <aside className="template-notice section-shell" aria-label={copy.notice}>
-            <span>NOTE</span>
-            <p>{copy.notice}</p>
-          </aside>
-        )}
-
         <EvidenceMarquee label={copy.signal.label} items={copy.signal.items} />
 
         <section className="work section-shell" id="work" aria-labelledby="work-title">
@@ -164,7 +169,7 @@ export default async function PortfolioPage({ params }: PageProps) {
 
           <div className="project-list">
             {copy.projects.map((project, index) => (
-              <Reveal key={project.slug} delay={index * 0.05}>
+              <Reveal key={project.slug} delay={index * 0.03}>
                 <article className="project-card">
                   <Link
                     className="project-visual-link"
@@ -318,7 +323,12 @@ export default async function PortfolioPage({ params }: PageProps) {
                   <h3>{publication.title}</h3>
                   <p className="publication-result">{publication.result}</p>
                 </div>
-                <a href={publication.href} rel="noreferrer" target="_blank">
+                <a
+                  aria-label={`${publication.linkLabel}${newTabLabel}`}
+                  href={publication.href}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
                   {publication.linkLabel}
                   <span aria-hidden="true">↗</span>
                 </a>
@@ -341,12 +351,22 @@ export default async function PortfolioPage({ params }: PageProps) {
                 <span aria-hidden="true">↗</span>
               </a>
               <div className="contact-social-row">
-                <a href={copy.identity.github} rel="noreferrer" target="_blank">
+                <a
+                  aria-label={`GitHub @kaikkd${newTabLabel}`}
+                  href={copy.identity.github}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
                   <SocialIcon name="github" />
                   GitHub · kaikkd
                   <span aria-hidden="true">↗</span>
                 </a>
-                <a href={copy.identity.linkedin} rel="noreferrer" target="_blank">
+                <a
+                  aria-label={`LinkedIn Jun Wang${newTabLabel}`}
+                  href={copy.identity.linkedin}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
                   <SocialIcon name="linkedin" />
                   LinkedIn
                   <span aria-hidden="true">↗</span>
@@ -357,13 +377,7 @@ export default async function PortfolioPage({ params }: PageProps) {
         </section>
       </main>
 
-      <footer className="site-footer section-shell">
-        <p>© 2026 {copy.identity.name.toUpperCase()}</p>
-        <p>{copy.footer}</p>
-        <a href="#main" aria-label={locale === "zh" ? "返回顶部" : "Back to top"}>
-          ↑
-        </a>
-      </footer>
+      <SiteFooter copy={copy} />
     </>
   );
 }

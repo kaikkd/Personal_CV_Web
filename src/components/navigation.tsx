@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { MobileNavigation } from "@/components/mobile-navigation";
 import type { PortfolioContent } from "@/content/types";
 
 type NavigationProps = {
@@ -18,13 +19,18 @@ export function Navigation({ copy, languageHref }: NavigationProps) {
       <nav className="desktop-nav" aria-label={copy.nav.menu}>
         <Link href={`${home}#work`}>{copy.nav.work}</Link>
         <Link href={`${home}#experience`}>{copy.nav.experience}</Link>
+        <Link href={`${home}#education`}>{copy.nav.education}</Link>
+        <Link href={`${home}#skills`}>{copy.nav.skills}</Link>
         <Link href={`${home}#research`}>{copy.nav.research}</Link>
         <Link href={`${home}#contact`}>{copy.nav.contact}</Link>
       </nav>
-      <Link className="language-switch" href={languageHref} hrefLang={copy.locale === "en" ? "zh" : "en"}>
-        {copy.languageLabel}
-        <span aria-hidden="true">↗</span>
-      </Link>
+      <div className="header-actions">
+        <MobileNavigation home={home} nav={copy.nav} />
+        <Link className="language-switch" href={languageHref} hrefLang={copy.locale === "en" ? "zh" : "en"}>
+          {copy.languageLabel}
+          <span aria-hidden="true">↗</span>
+        </Link>
+      </div>
     </header>
   );
 }

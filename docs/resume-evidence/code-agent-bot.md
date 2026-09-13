@@ -116,7 +116,7 @@ This directly unlocks JD terms such as:
 
 Code Agent Bot should remain one of the two flagship projects, but `itravel` is currently the stronger public engineering artifact. Until P0 and P1 are complete:
 
-1. Lead the resume with ByteDance experience.
+1. Lead the resume with TikTok experience.
 2. Describe Code Agent Bot as a technically substantial prototype, not a production system.
 3. Use `itravel` to prove end-to-end product quality and automated testing.
-4. Use ByteDance—not this repository—as the primary evidence for MCP and production Agent evaluation.
+4. Use TikTok—not this repository—as the primary evidence for MCP and production Agent evaluation.
