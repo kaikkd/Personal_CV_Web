@@ -67,7 +67,6 @@
   --duration-fast: 180ms;
   --duration-enter: 240ms;
   --duration-rule: 280ms;
-  --duration-nav: 280ms;
   --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
   --radius-sm: 12px;
   --radius-md: 18px;
@@ -178,8 +177,7 @@ button {
 
 /* Header */
 .site-header {
-  position: sticky;
-  top: 10px;
+  position: relative;
   z-index: 20;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -196,15 +194,6 @@ button {
     0 8px 24px rgba(30, 40, 45, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(24px) saturate(140%);
-  transition:
-    opacity var(--duration-enter) var(--ease-out),
-    transform var(--duration-nav) var(--ease-drawer);
-}
-
-.site-header[data-compact="true"] {
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(-8px);
 }
 
 .wordmark {
@@ -285,78 +274,6 @@ button {
 .mobile-navigation {
   position: relative;
   display: none;
-}
-
-.compact-nav-dock {
-  position: fixed;
-  top: 50%;
-  right: 14px;
-  z-index: 60;
-  display: grid;
-  gap: 6px;
-  width: 118px;
-  padding: 8px;
-  background: var(--glass-strong);
-  border: 1px solid var(--glass-highlight);
-  border-radius: var(--radius-lg);
-  box-shadow:
-    0 16px 42px rgba(28, 38, 43, 0.16),
-    inset 0 1px 0 rgba(255, 255, 255, 0.82);
-  transform-origin: right center;
-  transform: translateY(-50%);
-  transition:
-    opacity var(--duration-enter) var(--ease-out),
-    transform var(--duration-nav) var(--ease-drawer);
-  backdrop-filter: blur(28px) saturate(150%);
-
-  @starting-style {
-    opacity: 0;
-    transform: translateX(16px) translateY(-50%) scale(0.97);
-  }
-}
-
-.compact-section-nav {
-  display: grid;
-}
-
-.compact-section-nav a {
-  display: grid;
-  grid-template-columns: 24px minmax(0, 1fr);
-  gap: 6px;
-  align-items: center;
-  min-height: 38px;
-  padding: 0 8px;
-  border-radius: var(--radius-sm);
-  font-size: 11px;
-  font-weight: 700;
-  transition:
-    color var(--duration-fast) ease,
-    background-color var(--duration-fast) ease,
-    transform var(--duration-press) var(--ease-in-out);
-}
-
-.compact-section-nav a span {
-  color: var(--muted);
-  font-family: var(--font-mono);
-  font-size: 9px;
-}
-
-.language-switch.language-switch--compact {
-  display: flex;
-  min-height: 38px;
-  padding: 0 8px;
-  justify-content: space-between;
-  background: rgba(255, 255, 255, 0.42);
-  border-radius: var(--radius-sm);
-  font-size: 10px;
-  transition:
-    color var(--duration-fast) ease,
-    background-color var(--duration-fast) ease,
-    transform var(--duration-press) var(--ease-in-out);
-}
-
-.language-switch--compact i {
-  font-style: normal;
 }
 
 .mobile-nav-trigger {
@@ -1855,7 +1772,6 @@ button {
 
 /* Glass fallbacks */
 .site-header,
-.compact-nav-dock,
 .mobile-nav-panel,
 .project-card,
 .project-media figcaption,
@@ -1869,7 +1785,6 @@ button {
 
 @supports not (backdrop-filter: blur(1px)) {
   .site-header,
-  .compact-nav-dock,
   .mobile-nav-panel {
     background: #f8f7f2;
   }
@@ -1885,7 +1800,6 @@ button {
 
 @media (prefers-reduced-transparency: reduce) {
   .site-header,
-  .compact-nav-dock,
   .mobile-nav-panel,
   .project-card,
   .role,
@@ -1900,7 +1814,6 @@ button {
 
 @media (prefers-contrast: more) {
   .site-header,
-  .compact-nav-dock,
   .project-card,
   .role,
   .education-list article,
@@ -1912,16 +1825,6 @@ button {
 
 /* Fine-pointer hover only */
 @media (hover: hover) and (pointer: fine) {
-  .compact-section-nav a:hover,
-  .language-switch--compact:hover {
-    color: #173f3c;
-    background: rgba(255, 255, 255, 0.62);
-  }
-
-  .language-switch--compact:hover span {
-    transform: none;
-  }
-
   .desktop-nav a:hover::after {
     opacity: 1;
     transform: scaleX(1);
@@ -2004,9 +1907,7 @@ button {
   .site-footer a,
   .back-link,
   .project-links a,
-  .next-case > a,
-  .compact-section-nav a,
-  .language-switch--compact
+  .next-case > a
 ):active {
   transform: scale(0.98);
 }
@@ -2397,11 +2298,6 @@ button {
     transform: none;
   }
 
-  .compact-nav-dock {
-    transition: none;
-    transform: translateY(-50%);
-  }
-
   .desktop-nav a::after,
   .language-switch:hover span,
   .project-card:hover,
@@ -2440,9 +2336,7 @@ button {
     .site-footer a,
     .back-link,
     .project-links a,
-    .next-case > a,
-    .compact-section-nav a,
-    .language-switch--compact
+    .next-case > a
   ):active {
     transform: none;
   }

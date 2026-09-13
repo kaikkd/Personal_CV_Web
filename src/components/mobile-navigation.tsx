@@ -7,11 +7,9 @@ import type { PortfolioContent } from "@/content/types";
 export function MobileNavigation({
   home,
   nav,
-  panelId = "mobile-nav-panel",
 }: {
   home: string;
   nav: PortfolioContent["nav"];
-  panelId?: string;
 }) {
   const [open, setOpen] = useState(false);
   const [keyboardOpen, setKeyboardOpen] = useState(false);
@@ -52,7 +50,7 @@ export function MobileNavigation({
   return (
     <div className="mobile-navigation" ref={rootRef}>
       <button
-        aria-controls={panelId}
+        aria-controls="mobile-nav-panel"
         aria-expanded={open}
         className="mobile-nav-trigger"
         onClick={(event) => {
@@ -70,7 +68,7 @@ export function MobileNavigation({
         className="mobile-nav-panel"
         data-keyboard={keyboardOpen || undefined}
         hidden={!open}
-        id={panelId}
+        id="mobile-nav-panel"
       >
         {items.map(([label, section], index) => (
           <Link
