@@ -16,9 +16,14 @@ export function Navigation({ copy, languageHref }: NavigationProps) {
 
   useEffect(() => {
     let frame = 0;
+    const desktop = window.matchMedia("(min-width: 1024px)");
     const update = () => {
       cancelAnimationFrame(frame);
       frame = requestAnimationFrame(() => {
+        if (!desktop.matches) {
+          setCompact(false);
+          return;
+        }
         setCompact((current) =>
           current ? window.scrollY > 80 : window.scrollY > 120,
         );
@@ -27,11 +32,22 @@ export function Navigation({ copy, languageHref }: NavigationProps) {
 
     update();
     window.addEventListener("scroll", update, { passive: true });
+    desktop.addEventListener("change", update);
     return () => {
       cancelAnimationFrame(frame);
       window.removeEventListener("scroll", update);
+      desktop.removeEventListener("change", update);
     };
   }, []);
+
+  const compactItems = [
+    [copy.nav.work, "work"],
+    [copy.nav.experience, "experience"],
+    [copy.nav.education, "education"],
+    [copy.nav.skills, "skills"],
+    [copy.nav.research, "research"],
+    [copy.nav.contact, "contact"],
+  ] as const;
 
   return (
     <>
@@ -68,13 +84,21 @@ export function Navigation({ copy, languageHref }: NavigationProps) {
 
       {compact && (
         <div className="compact-nav-dock">
-          <MobileNavigation home={home} nav={copy.nav} panelId="compact-nav-panel" />
+          <nav className="compact-section-nav" aria-label={copy.nav.menu}>
+            {compactItems.map(([label, section], index) => (
+              <Link href={`${home}#${section}`} key={section}>
+                <span>0{index + 1}</span>
+                {label}
+              </Link>
+            ))}
+          </nav>
           <Link
             className="language-switch language-switch--compact"
             href={languageHref}
             hrefLang={copy.locale === "en" ? "zh" : "en"}
           >
-            {copy.languageLabel}
+            <span>{copy.languageLabel}</span>
+            <i aria-hidden="true">↗</i>
           </Link>
         </div>
       )}

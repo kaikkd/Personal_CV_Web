@@ -67,6 +67,7 @@
   --duration-fast: 180ms;
   --duration-enter: 240ms;
   --duration-rule: 280ms;
+  --duration-nav: 280ms;
   --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
   --radius-sm: 12px;
   --radius-md: 18px;
@@ -196,8 +197,8 @@ button {
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(24px) saturate(140%);
   transition:
-    opacity var(--duration-fast) var(--ease-out),
-    transform 220ms var(--ease-drawer);
+    opacity var(--duration-enter) var(--ease-out),
+    transform var(--duration-nav) var(--ease-drawer);
 }
 
 .site-header[data-compact="true"] {
@@ -288,46 +289,74 @@ button {
 
 .compact-nav-dock {
   position: fixed;
-  top: 16px;
-  right: clamp(16px, 2.2vw, 32px);
+  top: 50%;
+  right: 14px;
   z-index: 60;
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  min-height: 50px;
-  padding: 3px 7px 3px 14px;
+  display: grid;
+  gap: 6px;
+  width: 118px;
+  padding: 8px;
   background: var(--glass-strong);
   border: 1px solid var(--glass-highlight);
-  border-radius: 999px;
+  border-radius: var(--radius-lg);
   box-shadow:
     0 16px 42px rgba(28, 38, 43, 0.16),
     inset 0 1px 0 rgba(255, 255, 255, 0.82);
   transform-origin: right center;
+  transform: translateY(-50%);
   transition:
-    opacity var(--duration-fast) var(--ease-out),
-    transform 220ms var(--ease-drawer);
+    opacity var(--duration-enter) var(--ease-out),
+    transform var(--duration-nav) var(--ease-drawer);
   backdrop-filter: blur(28px) saturate(150%);
 
   @starting-style {
     opacity: 0;
-    transform: translateX(16px) scale(0.96);
+    transform: translateX(16px) translateY(-50%) scale(0.97);
   }
 }
 
-.compact-nav-dock .mobile-navigation {
-  display: block;
+.compact-section-nav {
+  display: grid;
 }
 
-.compact-nav-dock .mobile-nav-trigger {
-  min-height: 42px;
+.compact-section-nav a {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 6px;
+  align-items: center;
+  min-height: 38px;
+  padding: 0 8px;
+  border-radius: var(--radius-sm);
+  font-size: 11px;
+  font-weight: 700;
+  transition:
+    color var(--duration-fast) ease,
+    background-color var(--duration-fast) ease,
+    transform var(--duration-press) var(--ease-in-out);
 }
 
-.language-switch--compact {
-  min-width: 42px;
-  min-height: 42px;
-  justify-content: center;
+.compact-section-nav a span {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 9px;
+}
+
+.language-switch.language-switch--compact {
+  display: flex;
+  min-height: 38px;
+  padding: 0 8px;
+  justify-content: space-between;
   background: rgba(255, 255, 255, 0.42);
-  border-radius: 999px;
+  border-radius: var(--radius-sm);
+  font-size: 10px;
+  transition:
+    color var(--duration-fast) ease,
+    background-color var(--duration-fast) ease,
+    transform var(--duration-press) var(--ease-in-out);
+}
+
+.language-switch--compact i {
+  font-style: normal;
 }
 
 .mobile-nav-trigger {
@@ -549,14 +578,14 @@ button {
 .profile-contact-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 28px;
+  gap: 24px;
   max-width: 690px;
   margin-top: var(--space-4);
 }
 
 .profile-contact-grid > a {
   display: grid;
-  grid-template-columns: 20px minmax(0, 1fr) auto;
+  grid-template-columns: 24px minmax(0, 1fr) auto;
   gap: 9px;
   align-items: center;
   min-width: 0;
@@ -571,8 +600,8 @@ button {
 
 .profile-contact-icon {
   display: grid;
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   color: #35536c;
   place-items: center;
   transition:
@@ -581,8 +610,8 @@ button {
 }
 
 .profile-contact-icon svg {
-  width: 15px;
-  height: 15px;
+  width: 17px;
+  height: 17px;
 }
 
 .profile-contact-copy {
@@ -602,7 +631,7 @@ button {
 
 .profile-contact-copy strong {
   overflow: hidden;
-  font-size: var(--text-xs);
+  font-size: 13px;
   font-weight: 750;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -670,18 +699,18 @@ button {
 .availability-card {
   position: relative;
   width: 100%;
-  padding: 14px 14px 14px 22px;
-  background: rgba(255, 255, 255, 0.36);
-  border-radius: var(--radius-md);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.68);
-  backdrop-filter: blur(20px) saturate(135%);
+  padding: 4px 0 4px 20px;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
 }
 
 .availability-card::before {
   position: absolute;
-  top: 14px;
-  bottom: 14px;
-  left: 10px;
+  top: 0;
+  bottom: 0;
+  left: 0;
   width: 3px;
   content: "";
   background: linear-gradient(180deg, var(--cyan), var(--accent));
@@ -702,7 +731,7 @@ button {
   align-items: flex-start;
   margin: 0;
   color: #173f3c;
-  font-size: var(--text-xs);
+  font-size: 13px;
   font-weight: 700;
   line-height: 1.4;
 }
@@ -729,7 +758,7 @@ button {
   margin: var(--space-2) 0 0 16px;
   color: #47716d;
   font-family: var(--font-mono);
-  font-size: var(--text-xs);
+  font-size: 11px;
   letter-spacing: 0.04em;
 }
 
@@ -1822,7 +1851,6 @@ button {
 .site-header,
 .compact-nav-dock,
 .mobile-nav-panel,
-.availability-card,
 .project-card,
 .project-media figcaption,
 .role,
@@ -1840,7 +1868,6 @@ button {
     background: #f8f7f2;
   }
 
-  .availability-card,
   .project-card,
   .role,
   .education-list article,
@@ -1854,7 +1881,6 @@ button {
   .site-header,
   .compact-nav-dock,
   .mobile-nav-panel,
-  .availability-card,
   .project-card,
   .role,
   .education-list article,
@@ -1880,6 +1906,16 @@ button {
 
 /* Fine-pointer hover only */
 @media (hover: hover) and (pointer: fine) {
+  .compact-section-nav a:hover,
+  .language-switch--compact:hover {
+    color: #173f3c;
+    background: rgba(255, 255, 255, 0.62);
+  }
+
+  .language-switch--compact:hover span {
+    transform: none;
+  }
+
   .desktop-nav a:hover::after {
     opacity: 1;
     transform: scaleX(1);
@@ -1962,7 +1998,9 @@ button {
   .site-footer a,
   .back-link,
   .project-links a,
-  .next-case > a
+  .next-case > a,
+  .compact-section-nav a,
+  .language-switch--compact
 ):active {
   transform: scale(0.98);
 }
@@ -2040,11 +2078,6 @@ button {
 
   .mobile-navigation {
     display: block;
-  }
-
-  .compact-nav-dock {
-    top: 10px;
-    right: 12px;
   }
 
   .header-actions {
@@ -2349,10 +2382,14 @@ button {
     transform: none;
   }
 
-  .site-header,
-  .compact-nav-dock {
+  .site-header {
     transition: none;
     transform: none;
+  }
+
+  .compact-nav-dock {
+    transition: none;
+    transform: translateY(-50%);
   }
 
   .desktop-nav a::after,
@@ -2393,7 +2430,9 @@ button {
     .site-footer a,
     .back-link,
     .project-links a,
-    .next-case > a
+    .next-case > a,
+    .compact-section-nav a,
+    .language-switch--compact
   ):active {
     transform: none;
   }
