@@ -195,6 +195,15 @@ button {
     0 8px 24px rgba(30, 40, 45, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(24px) saturate(140%);
+  transition:
+    opacity var(--duration-fast) var(--ease-out),
+    transform 220ms var(--ease-drawer);
+}
+
+.site-header[data-compact="true"] {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-8px);
 }
 
 .wordmark {
@@ -275,6 +284,50 @@ button {
 .mobile-navigation {
   position: relative;
   display: none;
+}
+
+.compact-nav-dock {
+  position: fixed;
+  top: 16px;
+  right: clamp(16px, 2.2vw, 32px);
+  z-index: 60;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  min-height: 50px;
+  padding: 3px 7px 3px 14px;
+  background: var(--glass-strong);
+  border: 1px solid var(--glass-highlight);
+  border-radius: 999px;
+  box-shadow:
+    0 16px 42px rgba(28, 38, 43, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.82);
+  transform-origin: right center;
+  transition:
+    opacity var(--duration-fast) var(--ease-out),
+    transform 220ms var(--ease-drawer);
+  backdrop-filter: blur(28px) saturate(150%);
+
+  @starting-style {
+    opacity: 0;
+    transform: translateX(16px) scale(0.96);
+  }
+}
+
+.compact-nav-dock .mobile-navigation {
+  display: block;
+}
+
+.compact-nav-dock .mobile-nav-trigger {
+  min-height: 42px;
+}
+
+.language-switch--compact {
+  min-width: 42px;
+  min-height: 42px;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.42);
+  border-radius: 999px;
 }
 
 .mobile-nav-trigger {
@@ -1767,6 +1820,7 @@ button {
 
 /* Glass fallbacks */
 .site-header,
+.compact-nav-dock,
 .mobile-nav-panel,
 .availability-card,
 .project-card,
@@ -1781,6 +1835,7 @@ button {
 
 @supports not (backdrop-filter: blur(1px)) {
   .site-header,
+  .compact-nav-dock,
   .mobile-nav-panel {
     background: #f8f7f2;
   }
@@ -1797,6 +1852,7 @@ button {
 
 @media (prefers-reduced-transparency: reduce) {
   .site-header,
+  .compact-nav-dock,
   .mobile-nav-panel,
   .availability-card,
   .project-card,
@@ -1812,6 +1868,7 @@ button {
 
 @media (prefers-contrast: more) {
   .site-header,
+  .compact-nav-dock,
   .project-card,
   .role,
   .education-list article,
@@ -1983,6 +2040,11 @@ button {
 
   .mobile-navigation {
     display: block;
+  }
+
+  .compact-nav-dock {
+    top: 10px;
+    right: 12px;
   }
 
   .header-actions {
@@ -2283,6 +2345,12 @@ button {
   }
 
   .mobile-nav-panel {
+    transition: none;
+    transform: none;
+  }
+
+  .site-header,
+  .compact-nav-dock {
     transition: none;
     transform: none;
   }
